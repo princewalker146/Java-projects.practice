@@ -1,47 +1,46 @@
-// public class Account{
-//     String accountHolder;
-//     double balance;
-//     void depositBalance(){
-//         int amount=34;
-//         int balance=40;
-//         int sum= amount+balance;
-//         System.out.println("The total amount is "+sum+" of "+amount+"and "+balance);
-//     }
-// }
-// public class savingsAccount extends Account{
+// NUMBER1
 
-//     void addInterest(){
-// double interestRate=4.5;
-// double balance = 40.1;
-// double sumInterest= interestRate + balance;
-// System.out.println("The total interest for "+interestRate+" and"+balance+ "is "+sumInterest);
+public class Account {
+    private String accountNumber;
+    private String  accountHolderName;
+    private double balance;
+    private double amount;
 
+    // SETTERS FOR THE PUBLIC VOID METHODS
+  public void deposit(double amount){
+       if(amount>0){
+       balance +=amount;
+        System.out.println("Deposit Sucessfull");
+       } 
+       else{
+        System.out.println("Insufficient Funds");
+       }
+    }
 
+    public void withdraw(double amount){
+        if(amount<=balance){
+            System.out.println("Invalid amount");
+        }
+          else if (amount>balance) {
+              System.out.println("Insufficient Funds");
+          }
+else{
+    balance-=amount;
+    System.out.println("Withdrawal sucessful");
+}
+    }
+    // GETTERS FOR THE RETURN METHODS
+    double getBalance(){
+        return balance;
+    }
+    String getAccountNumber(){
+        return accountNumber;
+    }
+    public static void main(String[] args){
+Account myBank=new Account();
 
-//     }
-// }
-// public class PremiumSavingsAccount extends savingsAccount{
-
-// double bonus;
-// void addBonus(){
-
-//     double bounus= 9.7;
-//     double sum= bonus+balance;
-//     System.out.println("Bonus added is "+sum);
-
-
-// }
-    
-// public static void main( String[] args){
-// PremiumSavingsAccount myExp= new PremiumSavingsAccount();
-// myExp.accountHolder="BankGlow";
-// myExp.balance=30.5;
-// myExp.bonus=50.4;
-// myExp.interestRate= 3.4;
-// myExp.depositBalance();
-// myExp.addBonus();
-
-
-
-// }
-//     }
+myBank.deposit(34.43);
+myBank.withdraw(6.54);
+System.out.println("Deposit: "+myBank.getBalance());
+    }
+}
